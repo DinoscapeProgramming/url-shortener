@@ -32,8 +32,6 @@ app.all('/', (req, res) => {
   res.json("A simple URL shortener made with express.")
 })
 
-app.use('favicon.ico', express.static("favicon.ico"))
-
 app.listen(3000, () => {
   console.log("I'm ready!")
 })
