@@ -16,7 +16,7 @@ app.all('/:code', (req, res) => {
   } else if (code != "shorten" && code != "info") {
     res.status(404).json('No URL found')
   } else if (code === "shorten") {
-    if (!validurl.isUri(req.query.url)) return res.json("Not a valid url");
+    if (!validUrl.isUri(req.query.url)) return res.json("Not a valid url");
     const urlCode = shortId.generate()
     let db = fs.readFileSync('./db.json', 'utf8')
     db = JSON.parse(db)
