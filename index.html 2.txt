@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="shortcut icon" href="/images/favicon.ico"/>
+  <html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      .form-control m2 {
+        width: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+<body>
+
+<br>
+  
+<h1>
+  URL Shortener
+</h1>
+
+<br>
+  
+  <input required class="form-control m2" placeholder="Your long URL" type="url" id="fullUrl">
+  <br>
+  <button class="btn btn-success" type="submit" id="btn">Shorten</button>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+      let btn = document.getElementById('btn')
+      btn.addEventListener('click', function () {
+        let value = document.getElementById('fullUrl').value
+        if (!value) return alert("No URL provided");
+        let data = fetch('https://url.dinoscape.tk/shorten?url=' + value)
+  .then((response) => response.text())
+  .then((result) => {
+    alert(result)
+  })
+      })
+</script>
+  
+</body>
+</html>
